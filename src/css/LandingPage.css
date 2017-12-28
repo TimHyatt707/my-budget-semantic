@@ -1,0 +1,21 @@
+.wrapper {
+  width:auto;
+  height:200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header {
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 3em;
+  color: black;
+}
+
+p {
+  font-size:1em;
+  font-family:verdana;
+  color:black;
+}

@@ -11,13 +11,6 @@
   z-index: 1;
 }
 
-.button-wrapper{
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .form-label{
   color: white !important;
 }

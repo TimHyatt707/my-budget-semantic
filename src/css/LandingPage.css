@@ -1,21 +1,78 @@
-.wrapper {
-  width:auto;
-  height:200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#landing-page{
+  width: 100%;
+  height: 100%;
 }
 
-.Header {
+#blurred-background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.button-wrapper{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-label{
+  color: white !important;
+}
+
+.header-wrapper {
+  position: relative;
+  z-index: 1;
+  width: auto !important;
+  height: 180px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.header {
+  font-family: verdana !important;
+  font-weight: bold !important;
+  font-size: 3em !important;
+  color: white !important;
+}
+
+.errorMsg{
+  color:red;
+  font-style: oblique;
+  margin: 0.5em;
+}
+
+.signupform-wrapper {
+  position: relative;
+  height: auto;
+  width: auto;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-content: center !important;
+  align-items: center !important;
+  z-index: 1;
+}
+
+Form {
+  font-size: 1em;
   font-family: verdana;
-  font-weight: bold;
-  font-size: 3em;
-  color: black;
+  color: white;
+}
+
+input {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
-  font-size:1em;
-  font-family:verdana;
-  color:black;
+  font-size: 1em !important;
+  font-family: verdana !important;
+  color: white !important;
 }

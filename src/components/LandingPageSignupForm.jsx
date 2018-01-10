@@ -23,15 +23,41 @@ export default class LandingPageSignupForm extends Component {
     const email = this.state.email;
     const username = this.state.username;
     const password = this.state.password;
-    console.log(email, username, password)
+
+    // password validation
+
     if (password.length < 6) {
-      this.setState({ errorMsg: 'Password is too short' });
+      return this.setState({ errorMsg: 'Password must be at least six characters long' });
+    } else if (password.match(/[\W]/g) === null) {
+      return this.setState({ errorMsg: 'Password must contain at least one special character' });
     } else {
       this.setState({ errorMsg: undefined });
     }
+
+    // username validation
+
+    if (username.length < 6) {
+      return this.setState({ errorMsg: 'Username must be at least six characters long' });
+    } else {
+      this.setState({ errorMsg: undefined });
+    }
+
+    // email validation
+
+    if (email.match(/[\w]+[\@]+([A-Za-z0-9]*)+(\.[A-Za-z0-9-]+)+/g) === null) {
+      return this.setState({ errorMsg: 'Invalid email format' });
+    } else {
+      this.setState({ errorMsg: undefined });
+    }
+
+    // this.props.onCreateUser({ email, username, password });
+
+    return undefined;
   }
 
-  _handleLogin() { }
+  _handleLogin() {
+    // TODO: redirect to login page
+  }
 
   _onChangeUsername(username) {
     this.setState({ username: username.target.value });
@@ -48,7 +74,7 @@ export default class LandingPageSignupForm extends Component {
   render() {
     return (
       <div className="signupform-wrapper">
-        <Form >
+        <Form className="signupform">
           <div className="errorMsg">{this.state.errorMsg}</div>
           <Form.Field >
             <label className="form-label">Email</label>
@@ -60,17 +86,20 @@ export default class LandingPageSignupForm extends Component {
           </Form.Field>
           <Form.Field >
             <label className="form-label">Password</label>
-            <input id="password" placeholder="password" onChange={this._onChangePassword} />
+            <input
+              id="password"
+              placeholder="password"
+              type="password"
+              onChange={this._onChangePassword}
+            />
           </Form.Field>
-          <div className="button-wrapper">
-            <Button.Group>
-              <Button type="submit" onClick={this._onSubmitForm} className="ui button" color="blue">
-                Submit
-              </Button>
-              <Button.Or />
-              <Button color="green" onClick={this._handleLogin}>Login</Button>
-            </Button.Group>
-          </div>
+          <Button.Group className="button-wrapper">
+            <Button type="submit" onClick={this._onSubmitForm} className="ui button" color="blue">
+              Submit
+            </Button>
+            <Button.Or />
+            <Button color="green" onClick={this._handleLogin}>Login</Button>
+          </Button.Group>
         </Form>
       </div>
     );

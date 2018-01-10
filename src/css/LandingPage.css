@@ -1,9 +1,4 @@
-#landing-page{
-  width: 100%;
-  height: 100%;
-}
-
-#blurred-background{
+#blurred-background {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -11,7 +6,33 @@
   z-index: 1;
 }
 
+#landing-page{
+  width: 100%;
+  height: 100%;
+}
+
+.button-wrapper {
+  width: 100%;
+}
+
+.errorMsg{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: black;
+  font-style: oblique;
+  margin: 0.5em;
+  overflow: visible;
+}
+
 .form-label{
+  color: white !important;
+}
+
+.header {
+  font-family: verdana !important;
+  font-weight: bold !important;
+  font-size: 3em !important;
   color: white !important;
 }
 
@@ -26,33 +47,26 @@
   z-index: 3;
 }
 
-.header {
-  font-family: verdana !important;
-  font-weight: bold !important;
-  font-size: 3em !important;
-  color: white !important;
-}
-
 .layout-wrapper {
   position: absolute;
 }
 
-.errorMsg{
-  color:red;
-  font-style: oblique;
-  margin: 0.5em;
-}
-
 .signupform-wrapper {
-  position: relative;
+  position: fixed;
   height: auto;
-  width: auto;
+  width: 100%;
   display: flex !important;
   flex-direction: row !important;
   justify-content: center !important;
   align-content: center !important;
   align-items: center !important;
   z-index: 3;
+}
+
+.signupform {
+  width : 25%;
+  text-overflow: clip;
+  overflow: visible;
 }
 
 Form {

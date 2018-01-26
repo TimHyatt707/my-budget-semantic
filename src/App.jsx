@@ -6,18 +6,22 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'semantic-ui-css/semantic.css';
 
-import LandingPage from './components/LandingPage';
+import LandingPageContainer from './redux/containers/LandingPageContainer';
+
+import setupStore from './redux/setupStore';
+
+const store = setupStore();
 
 export default function App() {
   return (
     <div className="App">
-      {/* TO DO: Implement redux store provider */}
-      <Router>
-        <Switch>
-          {/* TO DO: Sync up with page container instead of page component */}
-          <Route exact path="/" component={LandingPage} />
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={LandingPageContainer} />
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }

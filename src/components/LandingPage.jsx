@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Image } from 'semantic-ui-react';
 
@@ -12,13 +12,13 @@ import '../css/LandingPage.css';
 
 const backgroundImage = require('../assets/waterfall.jpeg');
 
-export default function LandingPage() {
+export default function LandingPage({ showLogin, onShowLoginForm }) {
   return (
     <div id="landing-page">
       <Image id="blurred-background" src={backgroundImage} />
       <LandingPageLayout>
         <Header />
-        <SignupForm />
+        <SignupForm showLogin={showLogin} onShowLoginForm={onShowLoginForm} />
       </LandingPageLayout>
     </div>
   );

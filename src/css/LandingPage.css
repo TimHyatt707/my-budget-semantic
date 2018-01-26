@@ -51,6 +51,22 @@
   position: absolute;
 }
 
+.modal-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+}
+
+.modal-actions-wrapper {
+  display:flex;
+  flex-direction: column;
+}
+
+.modal-actions-wrapper > button {
+  width: 150px;
+  box-shadow: 3px 3px grey !important;
+}
+
 .signupform-wrapper {
   position: fixed;
   height: auto;
@@ -69,6 +85,10 @@
   overflow: visible;
 }
 
+button {
+  box-shadow: 3px 3px black !important;
+}
+
 Form {
   font-size: 1em;
   font-family: verdana;
@@ -76,6 +96,7 @@ Form {
 }
 
 input {
+  box-shadow: 3px 3px black !important;
   margin-top: 3px;
   margin-bottom: 3px;
   display: flex;

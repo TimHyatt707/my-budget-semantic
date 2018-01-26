@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Modal, Header, Icon } from 'semantic-ui-react';
 
 export default class LandingPageSignupForm extends Component {
   constructor() {
@@ -10,11 +10,15 @@ export default class LandingPageSignupForm extends Component {
       username: '',
       password: '',
       email: '',
+      loginUsername: '',
+      loginPassword: '',
     };
     this._onSubmitForm = this._onSubmitForm.bind(this);
     this._handleLogin = this._handleLogin.bind(this);
     this._onChangeUsername = this._onChangeUsername.bind(this);
     this._onChangePassword = this._onChangePassword.bind(this);
+    this._onChangeLoginUsername = this._onChangeLoginUsername.bind(this);
+    this._onChangeLoginPassword = this._onChangeLoginPassword.bind(this);
     this._onChangeEmail = this._onChangeEmail.bind(this);
   }
 
@@ -56,7 +60,7 @@ export default class LandingPageSignupForm extends Component {
   }
 
   _handleLogin() {
-    // TODO: redirect to login page
+    this.props.onShowLoginForm();
   }
 
   _onChangeUsername(username) {
@@ -69,6 +73,14 @@ export default class LandingPageSignupForm extends Component {
 
   _onChangeEmail(email) {
     this.setState({ email: email.target.value });
+  }
+
+  _onChangeLoginUsername(loginUsername) {
+    this.setState({ loginUsername: loginUsername.target.value });
+  }
+
+  _onChangeLoginPassword(loginPassword) {
+    this.setState({ loginPassword: loginPassword.target.value });
   }
 
   render() {
@@ -101,6 +113,42 @@ export default class LandingPageSignupForm extends Component {
             <Button color="green" onClick={this._handleLogin}>Login</Button>
           </Button.Group>
         </Form>
+        {this.props.showLogin ?
+          <Modal defaultOpen basic >
+            <div className="modal-wrapper" >
+              <Modal.Content className="modal-content-wrapper">
+                <Form className="loginform-wrapper" >
+                  <Form.Field >
+                    <label className="form-label">Username</label>
+                    <input
+                      id="loginUsername"
+                      placeholder="username"
+                      onChange={this._onChangeLoginUsername}
+                    />
+                  </Form.Field>
+                  <Form.Field >
+                    <label className="form-label">Password</label>
+                    <input
+                      id="loginPassword"
+                      placeholder="password"
+                      type="password"
+                      onChange={this._onChangeLoginPassword}
+                    />
+                  </Form.Field>
+                </Form>
+              </Modal.Content>
+              <Modal.Actions className="modal-actions-wrapper">
+                <Button color="green" inverted>
+                  <Icon name="checkmark" /> Login
+                </Button>
+                <Button basic color="red" inverted>
+                  <Icon name="remove" /> Cancel
+                </Button>
+              </Modal.Actions>
+            </div>
+          </Modal>
+          : null
+        }
       </div>
     );
   }

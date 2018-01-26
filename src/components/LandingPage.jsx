@@ -12,13 +12,21 @@ import '../css/LandingPage.css';
 
 const backgroundImage = require('../assets/waterfall.jpeg');
 
-export default function LandingPage({ showLogin, onShowLoginForm }) {
+export default function LandingPage({
+  showLogin,
+  onShowLoginForm,
+  onCloseLoginForm,
+}) {
   return (
     <div id="landing-page">
       <Image id="blurred-background" src={backgroundImage} />
       <LandingPageLayout>
         <Header />
-        <SignupForm showLogin={showLogin} onShowLoginForm={onShowLoginForm} />
+        <SignupForm
+          showLogin={showLogin}
+          onShowLoginForm={onShowLoginForm}
+          onCloseLoginForm={onCloseLoginForm}
+        />
       </LandingPageLayout>
     </div>
   );

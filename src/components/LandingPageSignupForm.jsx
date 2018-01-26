@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Form, Modal, Header, Icon } from 'semantic-ui-react';
+import { Button, Form, Modal, Icon } from 'semantic-ui-react';
 
 export default class LandingPageSignupForm extends Component {
   constructor() {
@@ -20,6 +20,8 @@ export default class LandingPageSignupForm extends Component {
     this._onChangeLoginUsername = this._onChangeLoginUsername.bind(this);
     this._onChangeLoginPassword = this._onChangeLoginPassword.bind(this);
     this._onChangeEmail = this._onChangeEmail.bind(this);
+    this._handleClose = this._handleClose.bind(this);
+    this._handleSubmitLoginForm = this._handleSubmitLoginForm.bind(this);
   }
 
   _onSubmitForm(e) {
@@ -61,6 +63,16 @@ export default class LandingPageSignupForm extends Component {
 
   _handleLogin() {
     this.props.onShowLoginForm();
+  }
+
+  _handleClose() {
+    this.props.onCloseLoginForm();
+  }
+
+  _handleSubmitLoginForm() {
+    // TODO: Add submit login form
+    const username = this.state.loginUsername;
+    const password = this.state.loginPassword;
   }
 
   _onChangeUsername(username) {
@@ -138,10 +150,10 @@ export default class LandingPageSignupForm extends Component {
                 </Form>
               </Modal.Content>
               <Modal.Actions className="modal-actions-wrapper">
-                <Button color="green" inverted>
+                <Button color="green" inverted onClick={this._handleSubmitLoginForm}>
                   <Icon name="checkmark" /> Login
                 </Button>
-                <Button basic color="red" inverted>
+                <Button basic color="red" inverted onClick={this._handleClose}>
                   <Icon name="remove" /> Cancel
                 </Button>
               </Modal.Actions>
